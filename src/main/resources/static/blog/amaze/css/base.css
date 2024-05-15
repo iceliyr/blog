@@ -1,3 +1,23 @@
+
+/*
+    推荐网站样式
+*/
+/* 渐变边框样式 */
+.recommend-list {
+    border: 2px solid transparent; /* 初始时边框为透明 */
+    border-image: linear-gradient(to right, #ff7e5f, #feb47b); /* 渐变边框 */
+    border-image-slice: 1; /* 边框图像分割方式 */
+    transition: border-color 0.3s ease; /* 添加边框颜色过渡效果 */
+}
+
+/* 当鼠标悬停在推荐列表上时，边框颜色发生变化 */
+.recommend-list:hover {
+    border-color: #ff7e5f; /* 悬停时边框颜色 */
+}
+
+
+
+
 /**
  * Fix the flawed CSS box model - Yes, IE6's box model is better
  * Browser support: IE8+

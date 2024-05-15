@@ -195,7 +195,7 @@ public class MyBlogController {
         request.setAttribute("pageName", "友情链接");
         Map<Byte, List<BlogLink>> linkMap = linkService.getLinksForLinkPage();
         if (linkMap != null) {
-            //判断友链类别并封装数据 0-友链 1-推荐 2-个人网站
+            //判断友链类别并封装数据 0-友链 1-交流学习网站 2-学习知识网站 3-开发工具网站
             if (linkMap.containsKey((byte) 0)) {
                 request.setAttribute("favoriteLinks", linkMap.get((byte) 0));
             }
@@ -203,7 +203,10 @@ public class MyBlogController {
                 request.setAttribute("recommendLinks", linkMap.get((byte) 1));
             }
             if (linkMap.containsKey((byte) 2)) {
-                request.setAttribute("personalLinks", linkMap.get((byte) 2));
+                request.setAttribute("learningLinks", linkMap.get((byte) 2));
+            }
+            if(linkMap.containsKey((byte) 3)){
+                request.setAttribute("toolLinks",linkMap.get((byte) 3));
             }
         }
         request.setAttribute("configurations", configService.getAllConfigs());
