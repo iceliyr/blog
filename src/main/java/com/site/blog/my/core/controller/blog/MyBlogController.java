@@ -213,6 +213,21 @@ public class MyBlogController {
         return "blog/" + theme + "/link";
     }
 
+    @GetMapping({"/project"})
+    public String project(HttpServletRequest request) {
+        request.setAttribute("pageName", "个人项目");
+        Map<Byte, List<BlogLink>> linkMap = linkService.getLinksForLinkPage();
+        if (linkMap != null) {
+            //判断类别并封装数据 8-个人项目
+            if(linkMap.containsKey((byte) 8)){
+                request.setAttribute("projectLinks",linkMap.get((byte) 8));
+            }
+        }
+        request.setAttribute("configurations", configService.getAllConfigs());
+        return "blog/" + theme + "/project";
+    }
+
+
     /**
      * 评论操作
      */
@@ -294,17 +309,6 @@ public class MyBlogController {
         }
     }
 
-    @GetMapping({"/project"})
-    public String project(HttpServletRequest request) {
-        BlogDetailVO blogDetailVO = blogService.getBlogDetailBySubUrl("about");
-        if (blogDetailVO != null) {
-            request.setAttribute("blogDetailVO", blogDetailVO);
-            request.setAttribute("pageName", "about");
-            request.setAttribute("configurations", configService.getAllConfigs());
-            return "blog/" + theme + "/about";
-        } else {
-            return "error/error_400";
-        }
-    }
+
 
 }

@@ -74,11 +74,7 @@ $('#saveButton').click(function () {
         $('#edit-error-msg').html("请输入符合规范的网址！");
         return;
     }
-    if (!validCN_ENString2_100(linkDescription)) {
-        $('#edit-error-msg').css("display", "block");
-        $('#edit-error-msg').html("请输入符合规范的描述！");
-        return;
-    }
+
     if (isNull(linkRank) || linkRank < 0) {
         $('#edit-error-msg').css("display", "block");
         $('#edit-error-msg').html("请输入符合规范的排序值！");

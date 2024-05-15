@@ -1,7 +1,41 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+</head>
 <div th:fragment="side-fragment" class="am-u-lg-4 am-u-sm-12 am-u-lg-offset-0 am-u-sm-offset-0 sidebar-container">
-    <section>
+        <section>
+            <div class="sidebar-header">
+                <span class="sidebar-header-title">
+                    联系方式
+                </span>
+            </div>
+            <main class="sidebar-lists">
+                <ul>
+                    <li>
+                        <a href="https://www.github.com/iceliyr">
+                            GitHub：github/iceliyr
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://www.gitee.com/leeyiru">
+                            Gitee：gitee/leeyiru
+                        </a>
+                    </li>
+                    <li>
+                        <a>
+                            电话：13138777533
+                        </a>
+
+                    </li>
+                    <li>
+                        <a>
+                            邮箱：3329482804@qq.com
+                        </a>
+                    </li>
+                </ul>
+            </main>
+        </section>
+
         <section>
             <div class="sidebar-header">
                 <span class="sidebar-header-title">
@@ -33,6 +67,22 @@
                 </th:block>
             </div>
         </section>
+<!--    <section>-->
+<!--        <div class="sidebar-header">-->
+<!--                <span class="sidebar-header-title">-->
+<!--                    文章分类-->
+<!--                </span>-->
+<!--        </div>-->
+<!--        <div class="tags ">-->
+<!--            <th:block th:if="${null != hotCategories}">-->
+<!--                <th:block th:each="category : ${hotCategories}">-->
+<!--                    <a rel="tag" th:href="@{'/tag/' + ${category.categoryName}}">-->
+<!--                        <th:block th:text="${hotTag.tagName}+'('+${hotTag.tagCount}+')'"></th:block>-->
+<!--                    </a>-->
+<!--                </th:block>-->
+<!--            </th:block>-->
+<!--        </div>-->
+<!--    </section>-->
         <section>
             <div class="sidebar-header">
                 <span class="sidebar-header-title">

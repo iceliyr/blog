@@ -8,25 +8,6 @@
     <div class="am-u-lg-8 am-u-sm-12">
         <main class="links-list">
 
-<!--友情链接-->
-            <th:block th:unless="${#lists.isEmpty(favoriteLinks)}">
-                <div class="title">
-                    <h2>友情链接</h2>
-                </div>
-                <div class="recommend-list">
-                    <ul>
-                        <!-- 循环遍历每个推荐链接 -->
-                        <th:block th:each="favoriteLink : ${favoriteLinks}">
-                            <li>
-                                <!-- 链接标题 -->
-                                <h3><a th:href="@{${favoriteLink.linkUrl}}" th:text="${favoriteLink.linkName}"></a></h3>
-                                <!-- 链接描述 -->
-                                <p th:text="${favoriteLink.linkDescription}"></p>
-                            </li>
-                        </th:block>
-                    </ul>
-                </div>
-            </th:block>
 
 <!--知识学习-->
             <th:block th:unless="${#lists.isEmpty(recommendLinks)}">
@@ -87,7 +68,25 @@
                     </ul>
                 </div>
             </th:block>
-
+            <!--友情链接-->
+            <th:block th:unless="${#lists.isEmpty(favoriteLinks)}">
+                <div class="title">
+                    <h2>友情链接</h2>
+                </div>
+                <div class="recommend-list">
+                    <ul>
+                        <!-- 循环遍历每个推荐链接 -->
+                        <th:block th:each="favoriteLink : ${favoriteLinks}">
+                            <li>
+                                <!-- 链接标题 -->
+                                <h3><a th:href="@{${favoriteLink.linkUrl}}" th:text="${favoriteLink.linkName}"></a></h3>
+                                <!-- 链接描述 -->
+                                <p th:text="${favoriteLink.linkDescription}"></p>
+                            </li>
+                        </th:block>
+                    </ul>
+                </div>
+            </th:block>
 
 
 
