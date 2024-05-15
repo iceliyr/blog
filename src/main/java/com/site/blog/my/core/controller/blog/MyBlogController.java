@@ -186,7 +186,7 @@ public class MyBlogController {
 
 
     /**
-     * 友情链接页
+     * 推荐网站
      *
      * @return
      */
@@ -195,7 +195,7 @@ public class MyBlogController {
         request.setAttribute("pageName", "友情链接");
         Map<Byte, List<BlogLink>> linkMap = linkService.getLinksForLinkPage();
         if (linkMap != null) {
-            //判断友链类别并封装数据 0-友链 1-交流学习网站 2-学习知识网站 3-开发工具网站
+            //判断类别并封装数据 0-友链 1-交流学习网站 2-学习知识网站 3-开发工具网站
             if (linkMap.containsKey((byte) 0)) {
                 request.setAttribute("favoriteLinks", linkMap.get((byte) 0));
             }
@@ -279,4 +279,32 @@ public class MyBlogController {
             return "error/error_400";
         }
     }
+
+    @GetMapping({"/about"})
+    public String about(HttpServletRequest request) {
+
+        BlogDetailVO blogDetailVO = blogService.getBlogDetailBySubUrl("about");
+        if (blogDetailVO != null) {
+            request.setAttribute("blogDetailVO", blogDetailVO);
+            request.setAttribute("pageName", "about");
+            request.setAttribute("configurations", configService.getAllConfigs());
+            return "blog/" + theme + "/about";
+        } else {
+            return "error/error_400";
+        }
+    }
+
+    @GetMapping({"/project"})
+    public String project(HttpServletRequest request) {
+        BlogDetailVO blogDetailVO = blogService.getBlogDetailBySubUrl("about");
+        if (blogDetailVO != null) {
+            request.setAttribute("blogDetailVO", blogDetailVO);
+            request.setAttribute("pageName", "about");
+            request.setAttribute("configurations", configService.getAllConfigs());
+            return "blog/" + theme + "/about";
+        } else {
+            return "error/error_400";
+        }
+    }
+
 }

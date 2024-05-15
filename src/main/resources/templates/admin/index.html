@@ -26,7 +26,6 @@
                         <div class="small-box bg-info">
                             <div class="inner">
                                 <h3>新增博客</h3>
-
                                 <p>记心中所想</p>
                             </div>
                             <div class="icon">
@@ -106,13 +105,27 @@
                         <div class="small-box bg-dark">
                             <div class="inner">
                                 <h3 th:text="${linkCount}">65</h3>
-
-                                <p>友情链接</p>
+                                <p>推荐网站</p>
                             </div>
                             <div class="icon">
                                 <i class="fa fa-heart"></i>
                             </div>
                             <a th:href="@{/admin/links}" class="small-box-footer">More info <i
+                                    class="fa fa-arrow-circle-right"></i></a>
+                        </div>
+                    </div>
+                    <!-- ./col -->
+                    <div class="col-lg-4 col-6">
+                        <!-- small box -->
+                        <div class="small-box bg-dark">
+                            <div class="inner">
+                                <h3 th:text="${projectCount}">65</h3>
+                                <p>项目数量</p>
+                            </div>
+                            <div class="icon">
+                                <i class="fa fa-heart"></i>
+                            </div>
+                            <a th:href="@{/admin/project}" class="small-box-footer">More info <i
                                     class="fa fa-arrow-circle-right"></i></a>
                         </div>
                     </div>
