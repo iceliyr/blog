@@ -3,10 +3,10 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>personal blog | Log in</title>
+    <title>李艺儒 Blog | Log in</title>
     <!-- Tell the browser to be responsive to screen width -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="shortcut icon" th:href="@{/admin/dist/img/favicon.png}"/>
+    <link rel="shortcut icon" th:href="@{/admin/dist/img/logo.png}"/>
     <!-- Font Awesome -->
     <link rel="stylesheet" th:href="@{/admin/dist/css/font-awesome.min.css}">
     <!-- Ionicons -->
@@ -33,12 +33,15 @@
 </div>
 <div class="login-box">
     <div class="login-logo" style="color: #007bff;">
-        <h1>personal blog</h1>
+        <h1>LiYiRu Blog</h1>
     </div>
     <!-- /.login-logo -->
     <div class="card">
         <div class="card-body login-card-body">
-            <p class="login-box-msg">your personal blog , enjoy it</p>
+            <p class="login-box-msg">
+                后台管理系统暂不支持浏览<br>
+                暂时支持作者个人使用
+            </p>
             <form th:action="@{/admin/login}" method="post">
                 <div th:if="${not #strings.isEmpty(session.errorMsg)}" class="form-group">
                     <div class="alert alert-danger" th:text="${session.errorMsg}"></div>

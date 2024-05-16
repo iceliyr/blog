@@ -51,6 +51,22 @@
                 </form>
             </div>
         </section>
+    <section>
+        <div class="sidebar-header">
+                <span class="sidebar-header-title">
+                    文章分类
+                </span>
+        </div>
+        <div class="tags ">
+            <th:block th:if="${null != categories}">
+                <th:block th:each="category : ${categories}">
+                    <a rel="tag" th:href="@{'/category/' + ${category}}">
+                        <th:block th:text="${category}"></th:block>
+                    </a>
+                </th:block>
+            </th:block>
+        </div>
+    </section>
         <section>
             <div class="sidebar-header">
                 <span class="sidebar-header-title">
@@ -67,22 +83,6 @@
                 </th:block>
             </div>
         </section>
-<!--    <section>-->
-<!--        <div class="sidebar-header">-->
-<!--                <span class="sidebar-header-title">-->
-<!--                    文章分类-->
-<!--                </span>-->
-<!--        </div>-->
-<!--        <div class="tags ">-->
-<!--            <th:block th:if="${null != hotCategories}">-->
-<!--                <th:block th:each="category : ${hotCategories}">-->
-<!--                    <a rel="tag" th:href="@{'/tag/' + ${category.categoryName}}">-->
-<!--                        <th:block th:text="${hotTag.tagName}+'('+${hotTag.tagCount}+')'"></th:block>-->
-<!--                    </a>-->
-<!--                </th:block>-->
-<!--            </th:block>-->
-<!--        </div>-->
-<!--    </section>-->
         <section>
             <div class="sidebar-header">
                 <span class="sidebar-header-title">

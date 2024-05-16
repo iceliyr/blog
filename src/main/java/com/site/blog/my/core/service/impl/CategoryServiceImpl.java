@@ -20,6 +20,12 @@ public class CategoryServiceImpl implements CategoryService {
     @Autowired
     private BlogMapper blogMapper;
 
+
+    @Override
+    public List<String> selectCategoriesRank() {
+        return blogCategoryMapper.selectCategoriesRank();
+    }
+
     @Override
     public PageResult getBlogCategoryPage(PageQueryUtil pageUtil) {
         List<BlogCategory> categoryList = blogCategoryMapper.findCategoryList(pageUtil);

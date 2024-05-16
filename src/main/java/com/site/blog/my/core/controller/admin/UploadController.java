@@ -41,6 +41,7 @@ public class UploadController {
         File fileDirectory = new File(Constants.FILE_UPLOAD_DIC);
         //创建文件
         File destFile = new File(Constants.FILE_UPLOAD_DIC + newFileName);
+        System.out.println("文件图片:"+Constants.FILE_UPLOAD_DIC+newFileName);
         try {
             if (!fileDirectory.exists()) {
                 if (!fileDirectory.mkdir()) {

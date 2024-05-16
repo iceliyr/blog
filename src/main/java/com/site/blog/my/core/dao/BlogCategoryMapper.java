@@ -23,6 +23,8 @@ public interface BlogCategoryMapper {
 
     List<BlogCategory> findCategoryList(PageQueryUtil pageUtil);
 
+    public List<String> selectCategoriesRank();
+
     List<BlogCategory> selectByCategoryIds(@Param("categoryIds") List<Integer> categoryIds);
 
     int getTotalCategories(PageQueryUtil pageUtil);

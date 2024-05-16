@@ -61,6 +61,7 @@ public class MyBlogController {
         request.setAttribute("newBlogs", blogService.getBlogListForIndexPage(1));
         request.setAttribute("hotBlogs", blogService.getBlogListForIndexPage(0));
         request.setAttribute("hotTags", tagService.getBlogTagCountForIndex());
+        request.setAttribute("categories",categoryService.selectCategoriesRank());
         request.setAttribute("pageName", "首页");
         request.setAttribute("configurations", configService.getAllConfigs());
         return "blog/" + theme + "/index";
@@ -122,6 +123,7 @@ public class MyBlogController {
         request.setAttribute("newBlogs", blogService.getBlogListForIndexPage(1));
         request.setAttribute("hotBlogs", blogService.getBlogListForIndexPage(0));
         request.setAttribute("hotTags", tagService.getBlogTagCountForIndex());
+        request.setAttribute("categories",categoryService.selectCategoriesRank());
         request.setAttribute("configurations", configService.getAllConfigs());
         return "blog/" + theme + "/list";
     }
@@ -151,6 +153,7 @@ public class MyBlogController {
         request.setAttribute("newBlogs", blogService.getBlogListForIndexPage(1));
         request.setAttribute("hotBlogs", blogService.getBlogListForIndexPage(0));
         request.setAttribute("hotTags", tagService.getBlogTagCountForIndex());
+        request.setAttribute("categories",categoryService.selectCategoriesRank());
         request.setAttribute("configurations", configService.getAllConfigs());
         return "blog/" + theme + "/list";
     }
@@ -180,6 +183,7 @@ public class MyBlogController {
         request.setAttribute("newBlogs", blogService.getBlogListForIndexPage(1));
         request.setAttribute("hotBlogs", blogService.getBlogListForIndexPage(0));
         request.setAttribute("hotTags", tagService.getBlogTagCountForIndex());
+        request.setAttribute("categories",categoryService.selectCategoriesRank());
         request.setAttribute("configurations", configService.getAllConfigs());
         return "blog/" + theme + "/list";
     }
@@ -192,7 +196,7 @@ public class MyBlogController {
      */
     @GetMapping({"/link"})
     public String link(HttpServletRequest request) {
-        request.setAttribute("pageName", "友情链接");
+        request.setAttribute("pageName", "推荐网站");
         Map<Byte, List<BlogLink>> linkMap = linkService.getLinksForLinkPage();
         if (linkMap != null) {
             //判断类别并封装数据 0-友链 1-交流学习网站 2-学习知识网站 3-开发工具网站
@@ -301,14 +305,26 @@ public class MyBlogController {
         BlogDetailVO blogDetailVO = blogService.getBlogDetailBySubUrl("about");
         if (blogDetailVO != null) {
             request.setAttribute("blogDetailVO", blogDetailVO);
-            request.setAttribute("pageName", "about");
+            request.setAttribute("pageName", "关于作者");
             request.setAttribute("configurations", configService.getAllConfigs());
             return "blog/" + theme + "/about";
         } else {
             return "error/error_400";
         }
     }
+    @GetMapping({"/aboutBlog"})
+    public String aboutBlog(HttpServletRequest request) {
 
+        BlogDetailVO blogDetailVO = blogService.getBlogDetailBySubUrl("blog");
+        if (blogDetailVO != null) {
+            request.setAttribute("blogDetailVO", blogDetailVO);
+            request.setAttribute("pageName", "关于博客");
+            request.setAttribute("configurations", configService.getAllConfigs());
+            return "blog/" + theme + "/about-blog";
+        } else {
+            return "error/error_400";
+        }
+    }
 
 
 }

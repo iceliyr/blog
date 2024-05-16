@@ -8,6 +8,10 @@ import java.util.List;
 
 public interface CategoryService {
 
+
+    public List<String> selectCategoriesRank();
+
+
     /**
      * 查询分类的分页数据
      *

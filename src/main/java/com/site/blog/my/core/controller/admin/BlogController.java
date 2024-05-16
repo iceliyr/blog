@@ -83,6 +83,7 @@ public class BlogController {
                        @RequestParam("blogCoverImage") String blogCoverImage,
                        @RequestParam("blogStatus") Byte blogStatus,
                        @RequestParam("enableComment") Byte enableComment) {
+        System.out.println("图片:"+blogCoverImage);
         if (!StringUtils.hasText(blogTitle)) {
             return ResultGenerator.genFailResult("请输入文章标题");
         }
@@ -135,6 +136,7 @@ public class BlogController {
                          @RequestParam("blogCoverImage") String blogCoverImage,
                          @RequestParam("blogStatus") Byte blogStatus,
                          @RequestParam("enableComment") Byte enableComment) {
+        System.out.println("图片:"+blogCoverImage);
         if (!StringUtils.hasText(blogTitle)) {
             return ResultGenerator.genFailResult("请输入文章标题");
         }

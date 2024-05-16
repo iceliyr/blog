@@ -47,23 +47,92 @@
 /*
     推荐网站样式
 */
-/* 渐变边框样式 */
+/* 推荐标题样式 */
+/* 通用样式 */
+.recommend-center {
+    display: flex;
+    justify-content: space-between; /* 根据需要调整元素之间的空间 */
+    align-items: flex-start; /* 垂直对齐，根据需要调整 */
+}
+
+/* 如果需要设置固定宽度或者弹性宽度，可以在这里指定 */
+.recommend-left, .recommend-right {
+    flex: 1; /* 默认情况下，每个子元素占据相同空间 */
+    /* 如果需要，你可以为.recommend-left或.recommend-right指定具体的宽度 */
+}
+
+/* 推荐标题样式 */
+.recommend-title {
+    text-align: center;
+    margin-bottom: 10px;
+    padding: 15px 0;
+    font-size: 24px;
+    font-weight: bold;
+    border-radius: 4px;
+}
+
+.recommend-title {
+    color: #111111;
+}
+
+/* 推荐列表容器样式 */
 .recommend-list {
-    border: 2px solid transparent; /* 初始时边框为透明 */
-    border-image-slice: 1; /* 边框图像分割方式 */
-    transition: border-color 0.3s ease; /* 添加边框颜色过渡效果 */
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 15px;
 }
 
-/* 当鼠标悬停在推荐列表上时，边框颜色发生变化 */
-.recommend-list:hover {
-    border-color: #ff7e5f; /* 悬停时边框颜色 */
-}
-.recommend-list ul {
-    list-style-type: none;
+/* 推荐列表项样式 */
+.recommend-list li.recommend-li {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    overflow: hidden;
 }
 
-.recommend-list ul li::before {
-    content: none; /* 移除默认的符号 */
+/* 链接标题样式 */
+.recommend-list li.recommend-li h5 {
+    margin: 0 0 10px 0;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.recommend-list li.recommend-li h5 a {
+    color: #007bff;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.recommend-list li.recommend-li h5 a:hover {
+    color: #0056b3;
+}
+
+/* 链接描述样式 */
+.recommend-list li.recommend-li p {
+    color: #666;
+    font-size: 16px;
+    line-height: 1.6;
+    margin: 0;
+}
+
+/* 添加一些额外的样式 */
+.recommend-list li.recommend-li:not(:last-child) {
+    margin-bottom: 30px;
+    border-bottom: 1px solid #eee;
+}
+
+/* 响应式布局样式（可选） */
+@media (max-width: 600px) {
+    .recommend-list {
+        padding: 0;
+    }
+    .recommend-list li.recommend-li {
+        padding: 15px;
+    }
 }
 
 

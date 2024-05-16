@@ -3,6 +3,7 @@ package com.site.blog.my.core.entity;
 import com.fasterxml.jackson.annotation.JsonFormat;
 
 import java.util.Date;
+import java.util.List;
 
 public class BlogCategory {
     private Integer categoryId;
@@ -17,6 +18,7 @@ public class BlogCategory {
 
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "GMT+8")
     private Date createTime;
+
 
     public Integer getCategoryId() {
         return categoryId;

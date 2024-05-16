@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head th:replace="~{blog/amaze/header::head-fragment}"></head>
+<head th:replace="~{blog/amaze/header::head-fragment}">
+    <title th:text="${configurations.get('websiteName')}+' | '+${pageName}">推荐网站</title>
+</head>
 <body id="blog">
 <div th:replace="~{blog/amaze/header::nav-fragment}"></div>
 <div th:replace="~{blog/amaze/header::header-fragment}"></div>
