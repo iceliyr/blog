@@ -35,12 +35,12 @@ $('#commentSubmit').click(function () {
         });
         return;
     }
-    if (!validCN_ENString2_100(commentBody)) {
-        swal("请输入符合规范的评论内容(不要输入特殊字符)", {
-            icon: "warning",
-        });
-        return;
-    }
+    // if (!validCN_ENString2_100(commentBody)) {
+    //     swal("请输入符合规范的评论内容(不要输入特殊字符)", {
+    //         icon: "warning",
+    //     });
+    //     return;
+    // }
     var data = {
         "blogId": blogId, "verifyCode": verifyCode, "commentator": commentator,
         "email": email, "websiteUrl": websiteUrl, "commentBody": commentBody

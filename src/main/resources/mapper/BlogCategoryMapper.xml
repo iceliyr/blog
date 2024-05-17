@@ -17,6 +17,7 @@
     <select id="selectCategoriesRank" resultType="java.lang.String">
         select category_name
         from  tb_blog_category
+        where is_deleted=0
         order by category_rank desc,create_time desc;
     </select>
 

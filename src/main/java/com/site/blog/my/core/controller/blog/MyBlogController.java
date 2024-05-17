@@ -75,7 +75,7 @@ public class MyBlogController {
     @GetMapping({"/categories"})
     public String categories(HttpServletRequest request) {
         request.setAttribute("hotTags", tagService.getBlogTagCountForIndex());
-        request.setAttribute("categories", categoryService.getAllCategories());
+        request.setAttribute("categories", categoryService.selectCategoriesRank());
         request.setAttribute("pageName", "分类页面");
         request.setAttribute("configurations", configService.getAllConfigs());
         return "blog/" + theme + "/category";

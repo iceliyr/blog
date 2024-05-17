@@ -49,10 +49,10 @@ public class TagServiceImpl implements TagService {
     @Override
     public Boolean deleteBatch(Integer[] ids) {
         //已存在关联关系不删除
-        List<Long> relations = relationMapper.selectDistinctTagIds(ids);
-        if (!CollectionUtils.isEmpty(relations)) {
-            return false;
-        }
+//        List<Long> relations = relationMapper.selectDistinctTagIds(ids);
+//        if (!CollectionUtils.isEmpty(relations)) {
+//            return false;
+//        }
         //删除tag
         return blogTagMapper.deleteBatch(ids) > 0;
     }

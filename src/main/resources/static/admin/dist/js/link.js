@@ -53,7 +53,7 @@ function reload() {
 
 function linkAdd() {
     reset();
-    $('.modal-title').html('友链添加');
+    $('.modal-title').html('网站添加');
     $('#linkModal').modal('show');
 }
 
@@ -137,7 +137,7 @@ function linkEdit() {
             }
         }
     });
-    $('.modal-title').html('友链修改');
+    $('.modal-title').html('网站修改');
     $('#linkModal').modal('show');
     $("#linkId").val(id);
 }
