@@ -14,7 +14,7 @@
 
 .project-list li {
     margin-bottom: 30px; /* 列表项之间的间距 */
-    background-color: #f9f9f9; /* 背景色 */
+    background-color: #ecf8fa; /* 背景色 */
     border-radius: 10px; /* 圆角边框 */
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* 阴影效果 */
     padding: 20px; /* 内边距 */

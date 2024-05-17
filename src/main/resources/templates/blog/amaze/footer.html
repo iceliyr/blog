@@ -3,10 +3,9 @@
 <footer class="footer blog-footer" th:fragment="footer-fragment">
     <div class="blog-text-center">
         &copy;
-        <a th:text="${configurations.get('footerAbout')}">LiYiRu Blog.</a>  &nbsp;   • &nbsp;
-        Powered by <a href="https://github.com/ZHENFENG13" target="_blank" th:text="${configurations.get('footerCopyRight')}">2024 LYR</a><br/>
-        ICP <a href="http://www.beian.miit.gov.cn" th:text="${configurations.get('footerICP')}">浙ICP备 xxxxxx-x号</a>
-        <span class="ft-warn">&heartsuit;</span>
+        <a th:text="${configurations.get('footerAbout')}">李艺儒 Blog</a>  &nbsp;   • &nbsp;
+        Powered by <a href="https://github.com/iceliyr" target="_blank" th:text="${configurations.get('footerCopyRight')}">2024 LYR</a><br/>
+        <strong>李艺儒 &copy; 2024 | ICP <a href="http://beian.miit.gov.cn/" th:text="${configurations.get('footerICP')}"></a></strong>
     </div>
 </footer>
 </html>
