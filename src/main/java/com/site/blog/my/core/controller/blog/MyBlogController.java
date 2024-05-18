@@ -99,7 +99,6 @@ public class MyBlogController {
             request.setAttribute("blogDetailVO", blogDetailVO);
             request.setAttribute("commentPageResult", commentService.getCommentPageByBlogIdAndPageNum(blogId, commentPage));
         }
-        request.setAttribute("user",user);
         request.setAttribute("pageName", "详情");
         request.setAttribute("configurations", configService.getAllConfigs());
         return "blog/" + theme + "/detail";
@@ -248,48 +247,36 @@ public class MyBlogController {
                           @RequestParam Long blogId, @RequestParam String verifyCode,
                           @RequestParam String commentator, @RequestParam String email,
                           @RequestParam String websiteUrl, @RequestParam String commentBody) {
+                if (!StringUtils.hasText(verifyCode)) {
+                    return ResultGenerator.genFailResult("验证码不能为空");
+                }
+                ShearCaptcha shearCaptcha = (ShearCaptcha) session.getAttribute("verifyCode");
+                if (shearCaptcha == null || !shearCaptcha.verify(verifyCode)) {
+                    return ResultGenerator.genFailResult("验证码错误");
+                }
+                String ref = request.getHeader("Referer");
+                if (!StringUtils.hasText(ref)) {
+                    return ResultGenerator.genFailResult("非法请求");
+                }
+                if (null == blogId || blogId < 0) {
+                    return ResultGenerator.genFailResult("非法请求");
+                }
+                if (!StringUtils.hasText(commentator)) {
+                    return ResultGenerator.genFailResult("请输入称呼");
+                }
+                if (!StringUtils.hasText(email)) {
+                    return ResultGenerator.genFailResult("请输入邮箱地址");
+                }
+                if (!PatternUtil.isEmail(email)) {
+                    return ResultGenerator.genFailResult("请输入正确的邮箱地址");
+                }
 
-        String user=(String) request.getAttribute("user");
-        if(user==null) {
-            if (!StringUtils.hasText(verifyCode)) {
-                return ResultGenerator.genFailResult("验证码不能为空");
-            }
-            ShearCaptcha shearCaptcha = (ShearCaptcha) session.getAttribute("verifyCode");
-            if (shearCaptcha == null || !shearCaptcha.verify(verifyCode)) {
-                return ResultGenerator.genFailResult("验证码错误");
-            }
-            String ref = request.getHeader("Referer");
-            if (!StringUtils.hasText(ref)) {
-                return ResultGenerator.genFailResult("非法请求");
-            }
-            if (null == blogId || blogId < 0) {
-                return ResultGenerator.genFailResult("非法请求");
-            }
-            if (!StringUtils.hasText(commentator)) {
-                return ResultGenerator.genFailResult("请输入称呼");
-            }
-            if (!StringUtils.hasText(email)) {
-                return ResultGenerator.genFailResult("请输入邮箱地址");
-            }
-            if (!PatternUtil.isEmail(email)) {
-                return ResultGenerator.genFailResult("请输入正确的邮箱地址");
-            }
-                request.getSession().setAttribute("user",email);
-                userMapper.addUser(commentator,email,websiteUrl);
-        }else {
-            User user1=userMapper.findUser(user);
-            email=user1.getEmail();
-            commentator=user1.getCommentator();
-            websiteUrl=user1.getWebsiteUrl();
-        }
-
-
-            if (!StringUtils.hasText(commentBody)) {
-                return ResultGenerator.genFailResult("请输入评论内容");
-            }
-            if (commentBody.trim().length() > 200) {
-                return ResultGenerator.genFailResult("评论内容过长");
-            }
+                if (!StringUtils.hasText(commentBody)) {
+                    return ResultGenerator.genFailResult("请输入评论内容");
+                }
+                if (commentBody.trim().length() > 200) {
+                    return ResultGenerator.genFailResult("评论内容过长");
+                }
 
         BlogComment comment = new BlogComment();
         comment.setBlogId(blogId);

@@ -5,36 +5,36 @@ $('#commentSubmit').click(function () {
     var email = $('#email').val();
     var websiteUrl = $('#websiteUrl').val();
     var commentBody = $('#commentBody').val();
-    // if (isNull(blogId)) {
-    //     swal("参数异常", {
-    //         icon: "warning",
-    //     });
-    //     return;
-    // }
-    // if (isNull(commentator)) {
-    //     swal("请输入你的称呼", {
-    //         icon: "warning",
-    //     });
-    //     return;
-    // }
-    // if (isNull(email)) {
-    //     swal("请输入你的邮箱", {
-    //         icon: "warning",
-    //     });
-    //     return;
-    // }
-    // if (isNull(verifyCode)) {
-    //     swal("请输入验证码", {
-    //         icon: "warning",
-    //     });
-    //     return;
-    // }
-    // if (!validCN_ENString2_100(commentator)) {
-    //     swal("请输入符合规范的名称(不要输入特殊字符)", {
-    //         icon: "warning",
-    //     });
-    //     return;
-    // }
+    if (isNull(blogId)) {
+        swal("参数异常", {
+            icon: "warning",
+        });
+        return;
+    }
+    if (isNull(commentator)) {
+        swal("请输入你的称呼", {
+            icon: "warning",
+        });
+        return;
+    }
+    if (isNull(email)) {
+        swal("请输入你的邮箱", {
+            icon: "warning",
+        });
+        return;
+    }
+    if (isNull(verifyCode)) {
+        swal("请输入验证码", {
+            icon: "warning",
+        });
+        return;
+    }
+    if (!validCN_ENString2_100(commentator)) {
+        swal("请输入符合规范的名称(不要输入特殊字符)", {
+            icon: "warning",
+        });
+        return;
+    }
     // if (!validCN_ENString2_100(commentBody)) {
     //     swal("请输入符合规范的评论内容(不要输入特殊字符)", {
     //         icon: "warning",
@@ -56,7 +56,7 @@ $('#commentSubmit').click(function () {
                     icon: "success",
                 });
                 $('#commentBody').val('');
-                $('#verifyCode').val('');
+                // $('#verifyCode').val('');
             }
             else {
                 swal(result.message, {
@@ -72,3 +72,5 @@ $('#commentSubmit').click(function () {
         }
     });
 });
+
+

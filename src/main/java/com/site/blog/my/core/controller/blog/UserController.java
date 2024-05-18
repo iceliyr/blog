@@ -3,6 +3,7 @@ package com.site.blog.my.core.controller.blog;
 import cn.hutool.captcha.ShearCaptcha;
 import com.site.blog.my.core.dao.UserMapper;
 import com.site.blog.my.core.entity.AdminUser;
+import com.site.blog.my.core.entity.User;
 import jakarta.annotation.Resource;
 import jakarta.servlet.http.HttpSession;
 import org.springframework.stereotype.Controller;
@@ -15,7 +16,7 @@ public class UserController {
 
     @Resource
     private UserMapper userMapper;
-//
+
 //    @PostMapping(value = "/login")
 //    public String login(@RequestParam("userName") String userName,
 //                        @RequestParam("password") String password,
@@ -34,7 +35,7 @@ public class UserController {
 //            session.setAttribute("errorMsg", "验证码错误");
 //            return "blog/amaze/login";
 //        }
-//        AdminUser adminUser = adminUserService.login(userName, password);
+//       User user = userMapper.findUser(userName);
 //        if (adminUser != null) {
 //            session.setAttribute("loginUser", adminUser.getNickName());
 //            session.setAttribute("loginUserId", adminUser.getAdminUserId());

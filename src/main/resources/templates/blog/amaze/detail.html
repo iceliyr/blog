@@ -142,10 +142,9 @@
     <th:block th:if="${blogDetailVO.enableComment==0}">
         <aside class="create-comment" id="create-comment">
             <hr>
-            <h2><i class="fa fa-pencil"></i> 添加评论</h2>
+            <h2><i class="fa fa-pencil"></i> 添加评论（第一次评论需要登录）</h2>
             <table id="commentForm" class="form">
                 <tbody>
-
 
                 <tr>
                     <td>
@@ -172,9 +171,6 @@
                              onclick="this.src='/common/kaptcha?d='+new Date()*1">
                     </td>
                 </tr>
-
-
-
                 <tr>
                     <td>
                         <textarea rows="5" name="commentBody" id="commentBody" placeholder="(*必填)请输入你的评论"></textarea>
@@ -187,6 +183,8 @@
                         </button>
                     </td>
                 </tr>
+
+
                 </tbody>
             </table>
         </aside>
