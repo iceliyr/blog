@@ -39,9 +39,11 @@
     <div class="card">
         <div class="card-body login-card-body">
             <p class="login-box-msg">
-                后台管理系统暂不支持浏览<br>
-                暂时支持作者个人使用
-            </p>
+            <h5>后台管理系统暂不支持浏览
+            </h5>
+            <h5>暂时仅限作者个人使用
+            </h5>
+
             <form th:action="@{/admin/login}" method="post">
                 <div th:if="${not #strings.isEmpty(session.errorMsg)}" class="form-group">
                     <div class="alert alert-danger" th:text="${session.errorMsg}"></div>
@@ -74,11 +76,13 @@
                         </button>
                     </div>
                 </div>
+               <span style="font-size: 12px;">LYR &copy; 2024 | ICP</span><a href="http://beian.miit.gov.cn/" style="font-size: 12px;" th:text="${icp}"></a></strong>
             </form>
 
         </div>
         <!-- /.login-card-body -->
     </div>
+
 </div>
 <!-- /.login-box -->
 

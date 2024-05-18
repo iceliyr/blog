@@ -1,6 +1,7 @@
 package com.site.blog.my.core.config;
 
 import com.site.blog.my.core.interceptor.AdminLoginInterceptor;
+import com.site.blog.my.core.interceptor.ICPInterceptor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
@@ -12,10 +13,14 @@ public class MyBlogWebMvcConfigurer implements WebMvcConfigurer {
 
     @Autowired
     private AdminLoginInterceptor adminLoginInterceptor;
+    @Autowired
+    private ICPInterceptor icpInterceptor;
 
     public void addInterceptors(InterceptorRegistry registry) {
+
         // 添加一个拦截器，拦截以/admin为前缀的url路径
         registry.addInterceptor(adminLoginInterceptor).addPathPatterns("/admin/**").excludePathPatterns("/admin/login").excludePathPatterns("/admin/dist/**").excludePathPatterns("/admin/plugins/**");
+        registry.addInterceptor(icpInterceptor).addPathPatterns("/admin/login");
     }
 
     public void addResourceHandlers(ResourceHandlerRegistry registry) {

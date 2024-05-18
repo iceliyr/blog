@@ -2,10 +2,10 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <footer class="footer blog-footer" th:fragment="footer-fragment">
     <div class="blog-text-center">
-        &copy;
-        <a th:text="${configurations.get('footerAbout')}">李艺儒 Blog</a>  &nbsp;   • &nbsp;
-        Powered by <a href="https://github.com/iceliyr" target="_blank" th:text="${configurations.get('footerCopyRight')}">2024 LYR</a><br/>
-        <strong>李艺儒 &copy; 2024 | ICP <a href="http://beian.miit.gov.cn/" th:text="${configurations.get('footerICP')}"></a></strong>
+        &copy;<a th:text="${configurations.get('footerAbout')}">LYR Blog</a>  &nbsp;   • &nbsp;
+        Powered by <a href="https://github.com/iceliyr" target="_blank" th:text="${configurations.get('footerCopyRight')}">2024 LYR</a>
+        <br/>
+       LYR &copy; 2024 | ICP  <a href="http://beian.miit.gov.cn/" th:text="${configurations.get('footerICP')}"></a>
     </div>
 </footer>
 </html>
